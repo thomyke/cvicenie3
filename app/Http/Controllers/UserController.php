@@ -31,7 +31,7 @@ class UserController extends Controller
         $user->vek = $vek;
         $user->save();
 
-        return response()->view('adduser');
+        return redirect()->action('UserController@showAllAction');
     }
 
     public function getAddUserForm(){
@@ -49,6 +49,7 @@ class UserController extends Controller
     public function deleteAction($id){
         $user = User::find($id);
         $user->delete();
+        return redirect()->action('UserController@showAllAction');
     }
 
 }
